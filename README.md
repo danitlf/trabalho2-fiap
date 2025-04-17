@@ -22,7 +22,7 @@ Editar
 
 - Python 3.x
 - Pandas
-- Banco de Dados relacional (Ex: Oracle, PostgreSQL, etc.)
+- Banco de Dados relacional (Ex: Oracle)
 - CLI (interface via terminal)
 
 ## ⚙️ Requisitos
