@@ -2,8 +2,8 @@ import os
 import oracledb
 import pandas as pd
 
-USER_DB = "rm562625"
-PASSWORD_DB = "290595"
+USER_DB = ""
+PASSWORD_DB = ""
 DSN_DB = "oracle.fiap.com.br:1521/ORCL"
 conn = None
 cursor = None
