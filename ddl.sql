@@ -1,16 +1,36 @@
 -- ========= Limpeza =========
+--deletar insumos utilizados
 BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE InsumosUtilizados CASCADE CONSTRAINTS';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+-- deletar cultura
+BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE Cultura CASCADE CONSTRAINTS';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+--deletar insumos
+BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE Insumos CASCADE CONSTRAINTS';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+-- deletar fornecedores
+BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE Fornecedores CASCADE CONSTRAINTS';
 EXCEPTION
-    WHEN OTHERS THEN
-        IF SQLCODE != -942 THEN -- -942 = tabela não existe
-            RAISE;
-        END IF;
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN RAISE; END IF;
 END;
-
+/
 -- ========================== Criação das Tabelas ==========================
 
 
@@ -51,19 +71,10 @@ ADD CONSTRAINT fk_insumos_fornecedor
 FOREIGN KEY (id_fornecedor)
 REFERENCES Fornecedores(id_fornecedor);
 
-ALTER TABLE Cultura
-ADD CONSTRAINT fk_cultura_insumo
-FOREIGN KEY (id_insumo)
-REFERENCES Insumos(id_insumo);
-
+ALTER TABLE InsumosUtilizados
+ADD CONSTRAINT fk_utilizados_insumo
+FOREIGN KEY (id_insumo) REFERENCES Insumos(id_insumo);
 
 ALTER TABLE InsumosUtilizados
-    ADD CONSTRAINT fk_utilizados_insumo
-    FOREIGN KEY (id_insumo) REFERENCES Insumos(id_insumo);
-
-ALTER TABLE InsumosUtilizados
-    ADD CONSTRAINT fk_utilizados_cultura
-    FOREIGN KEY (id_cultura) REFERENCES Cultura(id_culturas);
-
--- ===========
--- ALTER TABLE Insumos ADD CONSTRAINT chk_tipo CHECK (tipo IN ('Produto', 'Serviço'));
+ADD CONSTRAINT fk_utilizados_cultura
+FOREIGN KEY (id_cultura) REFERENCES Cultura(id_culturas);
