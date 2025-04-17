@@ -82,29 +82,3 @@ FOREIGN KEY (id_insumo) REFERENCES Insumos(id_insumo);
 
 ALTER TABLE InsumosUtilizados
 ADD CONSTRAINT fk_utilizados_cultura
-FOREIGN KEY (id_cultura) REFERENCES Cultura(id_culturas);
- 
-
--- inserção dados fornecedor
-insert into Fornecedores (nome) values ('Yara Brasil S/A');
-insert into Fornecedores (nome) values ('Nutrien Soluções Agrícolas');
-insert into Fornecedores (nome) values ('Mosaic Fertilizantes');
-insert into Fornecedores (nome) values ('PhosAgro');
-
-
--- inserção dados Cultura
-insert into Cultura (area_ha, nome) values (100, 'Milho');
-insert into Cultura (area_ha, nome) values (200, 'Café');
-
--- inserção dados Insumos
-insert into Insumos (id_fornecedor, nome, tipo, quantidade_estoque, custo_unitario, data_validade) values (1, 'Fertilizante orgânico', 'Fertilizante', 100, 250.30, TO_DATE('2026-03-01', 'YYYY-MM-DD'));
-insert into Insumos (id_fornecedor, nome, tipo, quantidade_estoque, custo_unitario, data_validade) values (2, 'Fertilizante mineral', 'Fertilizante', 70, 230.30, TO_DATE('2026-05-01', 'YYYY-MM-DD'));
-insert into Insumos (id_fornecedor, nome, tipo, quantidade_estoque, custo_unitario, data_validade) values (3, 'Biofertilizante', 'Fertilizante', 90, 270.30, TO_DATE('2026-10-01', 'YYYY-MM-DD'));
-insert into Insumos (id_fornecedor, nome, tipo, quantidade_estoque, custo_unitario, data_validade) values (4, 'Fertilizante organomineral.', 'Fertilizante', 50, 280.30, TO_DATE('2026-01-01', 'YYYY-MM-DD'));
-
--- inserção dados Insumos utilizados
-insert into InsumosUtilizados (id_cultura, id_insumo, quantidade_utilizada) values (1, 1, 5);
-insert into InsumosUtilizados (id_cultura, id_insumo, quantidade_utilizada) values (2, 2, 10);
-insert into InsumosUtilizados (id_cultura, id_insumo, quantidade_utilizada) values (1, 3, 9);
-insert into InsumosUtilizados (id_cultura, id_insumo, quantidade_utilizada) values (2, 4, 20);
-
