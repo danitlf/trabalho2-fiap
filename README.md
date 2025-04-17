@@ -68,9 +68,6 @@ Certifique-se de que o banco de dados está rodando e que a conexão está confi
 
 Execute o script principal:
 
-bash
-Copiar
-Editar
 python main.py
 Utilize o menu interativo no terminal para navegar pelas funcionalidades.
 
